@@ -12,12 +12,26 @@ return {
       local dapui = require("dapui")
       local dap_python = require("dap-python")
 
-      require("dapui").setup({})
+      require("dapui").setup({force_buffers = true})
       require("nvim-dap-virtual-text").setup({
         commented = true, -- Show virtual text alongside comment
       })
 
-      dap_python.setup("python")
+      dap_python.setup("python3")
+      dap_python.test_runner = 'pytest'
+
+
+      -- -- Add custom configuration to debug across all project files
+      -- table.insert(dap.configurations.python, 1, {
+      --   type = 'python',
+      --   request = 'launch',
+      --   name = 'Debug pytest (all files)',
+      --   module = 'pytest',
+      --   args = { '${file}', '-s', '-v' },
+      --   justMyCode = false, -- Critical: enables breakpoints in all project files
+      --   console = 'integratedTerminal',
+      -- })
+      --
 
       vim.fn.sign_define("DapBreakpoint", {
         text = "",
@@ -73,7 +87,7 @@ return {
       end, opts)
 
       vim.keymap.set("n", "<leader>dr", function()
-          dap.repl.toggle()
+        dap.repl.toggle()
       end, { desc = "Toggle Debug REPL" })
 
       -- Keymap to terminate debugging
