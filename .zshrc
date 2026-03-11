@@ -123,3 +123,5 @@ fi
 eval "$(pyenv virtualenv-init -)"
 
 eval "$(zoxide init zsh)"
+
+

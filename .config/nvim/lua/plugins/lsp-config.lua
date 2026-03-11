@@ -1,4 +1,4 @@
-  return {
+return {
   on_attach = function(client, bufnr)
     local opts = { noremap = true, silent = true, buffer = bufnr }
     vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, opts)
@@ -23,7 +23,7 @@
         ensure_installed = { "pyright", "html", "emmet_language_server", "cssls", "ts_ls", "lua_ls" },
         automatic_installation = true,
         automatic_enable = {
-          exclude = {},  -- Add servers to exclude from auto-enabling if needed
+          exclude = {},
         },
         handlers = {
           -- Default handler configures and enables servers
@@ -32,7 +32,7 @@
               capabilities = capabilities,
               on_attach = on_attach,
             }
-            -- Override for lua_ls if needed
+
             if server_name == "lua_ls" then
               server_config.settings = {
                 Lua = {
@@ -53,19 +53,31 @@
                 provideFormatter = true,
               }
             elseif server_name == "emmet_language_server" then
-              server_config.filetypes = { 
-                "css", "html", "htmldjango", "javascript", 
-                "javascriptreact", "typescriptreact", "vue" 
+              server_config.filetypes = {
+                "css", "html", "htmldjango", "javascript",
+                "javascriptreact", "typescriptreact", "vue"
               }
             end
+
             vim.lsp.config(server_name, server_config)
             vim.lsp.enable(server_name)
           end,
-          -- Specific handler for pyright if overrides needed
+
+          -- Pyright: use active venv if available, fallback to system python3
           ["pyright"] = function()
+            local venv_path = os.getenv("VIRTUAL_ENV")
+            local python_path = venv_path and (venv_path .. "/bin/python") or vim.fn.exepath("python3")
+
             vim.lsp.config("pyright", {
               capabilities = capabilities,
               on_attach = on_attach,
+              settings = {
+                python = {
+                  pythonPath = python_path,
+                  venvPath = venv_path and vim.fn.fnamemodify(venv_path, ":h") or nil,
+                  venv = venv_path and vim.fn.fnamemodify(venv_path, ":t") or nil,
+                },
+              },
             })
             vim.lsp.enable("pyright")
           end,

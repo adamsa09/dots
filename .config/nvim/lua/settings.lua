@@ -52,3 +52,4 @@ vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Move to split above' })
 vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Move to right split' })
 
 
+
