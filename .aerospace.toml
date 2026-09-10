@@ -90,6 +90,43 @@ gaps.outer.bottom =     10
 gaps.outer.top =        50 
 gaps.outer.right =      10
 
+# Pin workspaces to specific monitors so switching to a workspace always
+# shows it on its own monitor instead of moving it onto whichever monitor
+# is currently focused.
+# See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
+[workspace-to-monitor-force-assignment]
+    1 = 'g2411p'
+    2 = 'g2411p'
+    3 = 'g2411p'
+    4 = 'g2411p'
+    5 = 'g2411p'
+    6 = 'g2411p'
+    7 = 'g2411p'
+    8 = 'g2411p'
+    9 = 'g2411p'
+    A = 'dell.*'
+    B = 'dell.*'
+    C = 'dell.*'
+    D = 'dell.*'
+    E = 'dell.*'
+    F = 'dell.*'
+    G = 'dell.*'
+    I = 'dell.*'
+    M = 'dell.*'
+    N = 'dell.*'
+    O = 'dell.*'
+    P = 'dell.*'
+    Q = 'dell.*'
+    R = 'dell.*'
+    S = 'dell.*'
+    T = 'dell.*'
+    U = 'dell.*'
+    V = 'dell.*'
+    W = 'dell.*'
+    X = 'dell.*'
+    Y = 'dell.*'
+    Z = 'dell.*'
+
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 # 'main' binding mode must be always presented

@@ -37,18 +37,6 @@ local widgets = {
 	battery = {
 		update_freq = 180,
 	},
-	keyboard = {
-		default_label = "??",
-		event_name = "input_change",
-		notification = "AppleSelectedInputSourcesChangedNotification",
-		layout_aliases = {
-			Russian = "RU",
-			RussianWin = "RU",
-			ABC = "EN",
-			["U.S."] = "EN",
-			US = "EN",
-		},
-	},
 }
 
 return {

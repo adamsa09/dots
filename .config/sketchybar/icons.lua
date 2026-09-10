@@ -38,6 +38,10 @@ local icons = {
 			hotspot = "􀉤",
 			ethernet = "􀤆",
 		},
+		bluetooth = {
+			on = "󰂯",
+			off = "󰂲",
+		},
 		media = {
 			back = "􀊊",
 			forward = "􀊌",
@@ -80,6 +84,10 @@ local icons = {
 			vpn = "󱚿",
 			hotspot = "􀉤",
 			ethernet = "􀤆",
+		},
+		bluetooth = {
+			on = "󰂯",
+			off = "󰂲",
 		},
 		media = {
 			back = "",
