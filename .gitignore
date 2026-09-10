@@ -5,3 +5,12 @@
 
 # Downloaded Raycast extension bundles (~90MB of build output, not config).
 .config/raycast/
+
+# ~/.config is a symlink to this directory, so every app that writes to
+# ~/.config lands in this working tree automatically. These are app state
+# rather than configuration worth versioning.
+.config/cagent/
+.config/git/
+.config/medusa/
+.config/qBittorrent/
+.config/wireshark/
