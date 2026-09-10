@@ -103,6 +103,8 @@ source $ZSH/oh-my-zsh.sh
 alias vnv='source venv/bin/activate'
 alias passgen='openssl rand -base64'
 alias webserver='python3 -m http.server'
+export PYTHONSTARTUP=~/.pythonrc.py
+alias physics='~/physics-shell/.venv/bin/python'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
@@ -125,3 +127,5 @@ eval "$(pyenv virtualenv-init -)"
 eval "$(zoxide init zsh)"
 
 
+
+export PATH=$PATH:/Users/adam/.spicetify

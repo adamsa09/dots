@@ -10,8 +10,18 @@ config-version = 2
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = []
 
+# Keeps the sketchybar workspace indicator live: without this, sketchybar only
+# reads AeroSpace's focused workspace once at startup and thereafter piggybacks
+# on the front-app-switched notification, so a workspace switch that doesn't
+# also change the focused app (e.g. the same app open on two workspaces) never
+# gets reflected in the bar.
+# See: https://nikitabobko.github.io/AeroSpace/guide#exec-on-workspace-change
+exec-on-workspace-change = ['/bin/bash', '-c',
+    'sketchybar --trigger aerospace_refresh FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+]
+
 # Start AeroSpace at login
-start-at-login = false
+start-at-login = true 
 
 # Automatically reload the config when the config file is saved
 # After setting this to true, reload once manually to start the auto-reloading
@@ -57,7 +67,7 @@ persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B",
 # A callback that runs every time binding mode changes
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
-on-mode-changed = []
+on-mode-changed = ['exec-and-forget sketchybar --trigger aerospace_mode_change']
 
 focus-follows-mouse.enabled = false
 
@@ -73,12 +83,12 @@ key-mapping.preset = 'qwerty'
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See:
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
-gaps.inner.horizontal = 0
-gaps.inner.vertical =   0
-gaps.outer.left =       0
-gaps.outer.bottom =     0
-gaps.outer.top =        0
-gaps.outer.right =      0
+gaps.inner.horizontal = 10 
+gaps.inner.vertical =   10 
+gaps.outer.left =       10  
+gaps.outer.bottom =     10
+gaps.outer.top =        50 
+gaps.outer.right =      10
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
