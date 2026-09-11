@@ -14,10 +14,10 @@ yabai -m config left_padding                 10
 yabai -m config right_padding                10
 yabai -m config window_gap                   10
 
-# Reserve space for the sketchybar bar (height 32 + y_offset 6 + margin 8)
-# so windows tile below it instead of drawing over it. This is added on top
-# of top_padding above.
-yabai -m config external_bar                 all:46:0
+# Reserve space for the sketchybar bar (height 32 + y_offset 6 + margin 8),
+# now docked at the bottom, so windows tile above it instead of drawing under
+# it. This is added on top of bottom_padding above.
+yabai -m config external_bar                 all:0:46
 
 # Focus behavior
 yabai -m config mouse_follows_focus          off

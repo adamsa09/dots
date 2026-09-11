@@ -4,9 +4,8 @@ local settings = require("settings")
 sbar.bar({
 	height = settings.ui.bar_height,
 	color = colors.bar.bg,
-	position = "bottom",
 	padding_right = 0,
-	padding_left = 0,
+	padding_left = 1,
 	display = "all",
 	margin = 8,
 	y_offset = 6,

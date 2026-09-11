@@ -18,12 +18,32 @@ local sizes = {
 	app = 14.0,
 }
 
+local widgets = {
+	calendar = {
+		update_freq = 30,
+	},
+	cpu = {
+		poll_seconds = 5.0,
+		label_width = 33,
+		thresholds = {
+			medium = 30,
+			high = 60,
+			critical = 80,
+		},
+	},
+	battery = {
+		update_freq = 180,
+	},
+}
+
 return {
 	ui = ui,
 	font_sizes = sizes,
 
 	paddings = 3,
 	group_padding = 5,
+
+	icons = "sf-symbols",
 
 	font = font,
 	label_font = {
@@ -34,4 +54,8 @@ return {
 	binaries = {
 		yabai = os.getenv("YABAI_BIN") or "/opt/homebrew/bin/yabai",
 	},
+	network = {
+		interface = os.getenv("SKETCHYBAR_NET_IFACE") or "en0",
+	},
+	widgets = widgets,
 }

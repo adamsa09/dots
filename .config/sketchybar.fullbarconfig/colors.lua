@@ -13,8 +13,10 @@ local colors = {
 	transparent = 0x00000000,
 
 	bar = {
-		bg = 0x00000000,
-		border_color = 0x00000000,
+		bg = 0xb3202020,
+		border_color = 0x35e2e2e3,
+		-- bg = 0x00ffffff,
+		-- border_color = 0x00ffffff,
 		blur = 12,
 	},
 	popup = {
@@ -22,6 +24,7 @@ local colors = {
 		border = 0xff7f8490,
 	},
 	item_container_bg = 0x10e2e2e3,
+	-- item_container_bg = 0x00e2e2e3,
 	item_container_border_bg = 0x40e2e2e3,
 
 	with_alpha = function(color, alpha)
